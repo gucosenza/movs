@@ -101,12 +101,16 @@ class DetailView: UIView {
         } else {
             favoriteButton.setBackgroundImage(UIImage(named: "favorite_empty_icon") as UIImage?, for: .normal)
         }
-        yearLabel.text = movie.releaseDate.onlyYear
+        yearLabel.text = movie.releaseYear
         overviewTextView.text = movie.overview
     }
     
         @objc func buttonClicked(){
-            detailViewProtocol.didFavorite()
+            if !isFavorite {
+                favoriteButton.setBackgroundImage(UIImage(named: "favorite_full_icon") as UIImage?, for: .normal)
+                detailViewProtocol.didFavorite()
+            }
+            
         }
 }
 

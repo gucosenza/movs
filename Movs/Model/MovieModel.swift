@@ -44,4 +44,8 @@ struct Movie: Decodable {
         case adult, overview
         case releaseDate = "release_date"
     }
+    
+    var releaseYear: String {
+        return String(releaseDate.dropLast(6))
+    }
 }

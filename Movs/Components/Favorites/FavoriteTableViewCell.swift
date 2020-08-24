@@ -9,6 +9,7 @@ class FavoriteTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleToFill
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.clipsToBounds = true
         return image
     }()
     
@@ -39,11 +40,15 @@ class FavoriteTableViewCell: UITableViewCell {
         return label
     }()
     
-    func prepare(with favorite:FavoritesCD) {
+    func prepare(with favorite: FavoritesCD) {
         posterImage.image = imageManager.posterImage(poster_path: favorite.image!)
         titleLabel.text = favorite.name
         yearLabel.text = favorite.year
         overviewLabel.text = favorite.overview
+//        posterImage.image = imageManager.posterImage(poster_path: movie.posterPath)
+//        titleLabel.text = movie.title
+//        yearLabel.text = String(movie.releaseDate.dropLast(6))
+//        overviewLabel.text = movie.overview
         
         setupViews()
     }
@@ -69,7 +74,7 @@ extension FavoriteTableViewCell: CodeView {
         posterImage.heightAnchor.constraint(equalToConstant: 120).isActive = true
         posterImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         posterImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true //esquerda
-        posterImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 1).isActive = true
+        posterImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
     }
     
     func titleConstraint(){

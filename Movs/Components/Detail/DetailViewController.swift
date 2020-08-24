@@ -6,6 +6,7 @@ protocol DetailViewProtocol {
 
 class DetailViewController: UIViewController, DetailViewProtocol {
     
+//    private let udManager = UserDefaultsManager()
     private let favoriteManager = FavoriteManager()
     private let genreManager = GenreManager()
     var movie: Movie!
@@ -33,17 +34,7 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     }
     
     func didFavorite(){
-        if favoriteManager.isFavorite(idMovie: movie.id) {
-            favoriteManager.deleteFavorite(movie: movie)
-        } else {
-            favoriteManager.saveFavorite(movie: movie)
-        }
-//        self.detailView.
-//        self.homeCollectionView.collectionView.reloadData()
-        DispatchQueue.main.async {
-//            self.detailView.reloadInputViews()
-            self.reloadInputViews()
-        }
+        favoriteManager.saveFavorite(movie: movie)
     }
     
 }
