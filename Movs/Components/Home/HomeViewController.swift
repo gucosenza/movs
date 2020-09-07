@@ -52,11 +52,7 @@ class HomeViewController: UIViewController {
         
         self.view = spinner.startSpinner(self.view.bounds)
         
-        networkManager.loadGenre(onComplete: { (dictionaryGenres) in
-            self.genreManager.dictionaryGenres = dictionaryGenres
-        }) { (error) in
-            print("Ocorreu um erro ao carregar os generos")
-        }
+        genreManager.getGenreApi()
         
         networkManager.loadMovies(onComplete: { (moviesRest) in
             for movie in moviesRest.results {

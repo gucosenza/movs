@@ -25,15 +25,15 @@ class FavoriteManager {
         coreDataManager.saveFavorite(movie: movie)
     }
 
-    func deleteFavorite(movie: Movie) {
-        let favorite = FavoritesCD()
-        favorite.movieId = Int32(movie.id)
-        favorite.image = movie.posterPath
-        favorite.name = movie.title
-        favorite.overview = movie.overview
-        favorite.year = String(movie.releaseDate.dropLast(6))
-        coreDataManager.deleteFavorite(favorite: favorite)
-    }
+//    func deleteFavorite(movie: Movie) {
+//        let favorite = FavoritesCD()
+//        favorite.movieId = Int32(movie.id)
+//        favorite.image = movie.posterPath
+//        favorite.name = movie.title
+//        favorite.overview = movie.overview
+//        favorite.year = String(movie.releaseDate.dropLast(6))
+//        coreDataManager.deleteFavorite(favorite: favorite)
+//    }
 
     func deleteFavorite(favorite: FavoritesCD) {
         coreDataManager.deleteFavorite(favorite: favorite)
