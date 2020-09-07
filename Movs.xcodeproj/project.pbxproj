@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F47487B24F45037003D92B7 /* HomeCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47487A24F45037003D92B7 /* HomeCollectionManager.swift */; };
+		7F47488324F614F3003D92B7 /* FavoriteTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47488224F614F3003D92B7 /* FavoriteTableViewManager.swift */; };
 		7F64E4FF24EF6E0C00A96BB1 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E4FE24EF6E0C00A96BB1 /* FilterViewController.swift */; };
 		7F64E51F24F0CF6100A96BB1 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E51E24F0CF6100A96BB1 /* SpinnerView.swift */; };
 		7F8A074E24F1B82800DD5DA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F47487A24F45037003D92B7 /* HomeCollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionManager.swift; sourceTree = "<group>"; };
+		7F47488224F614F3003D92B7 /* FavoriteTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewManager.swift; sourceTree = "<group>"; };
 		7F64E4FE24EF6E0C00A96BB1 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		7F64E51E24F0CF6100A96BB1 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			children = (
 				7FBE3E5A24C68816000FF85E /* HomeCollectionViewCell.swift */,
 				7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */,
+				7F47487A24F45037003D92B7 /* HomeCollectionManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			children = (
 				7FBE3E7524C88513000FF85E /* FavoriteTableViewCell.swift */,
 				7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */,
+				7F47488224F614F3003D92B7 /* FavoriteTableViewManager.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -407,10 +413,12 @@
 				7FBE3E7624C88513000FF85E /* FavoriteTableViewCell.swift in Sources */,
 				7FB82D9424C4A5ED00745447 /* MoviesManager.swift in Sources */,
 				7FBE3E6424C69DC4000FF85E /* DetailView.swift in Sources */,
+				7F47488324F614F3003D92B7 /* FavoriteTableViewManager.swift in Sources */,
 				7FB82D8924C4872C00745447 /* GenreManager.swift in Sources */,
 				7FBE3E5724C64020000FF85E /* CodeView.swift in Sources */,
 				7FB82D5224C3FCAD00745447 /* AppDelegate.swift in Sources */,
 				7FB82D8724C400F400745447 /* Network.swift in Sources */,
+				7F47487B24F45037003D92B7 /* HomeCollectionManager.swift in Sources */,
 				7FBE3E7424C78D9B000FF85E /* CoreDataManager.swift in Sources */,
 				7FBE3E7024C77BA1000FF85E /* ImageManager.swift in Sources */,
 				7FFC624724EB7B8000A90CCF /* NetworkManager.swift in Sources */,

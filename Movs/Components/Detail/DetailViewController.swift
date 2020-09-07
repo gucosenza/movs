@@ -4,11 +4,10 @@ protocol DetailViewProtocol {
     func didFavorite()
 }
 
-class DetailViewController: UIViewController, DetailViewProtocol {
+class DetailViewController: UIViewController {
     
-//    private let udManager = UserDefaultsManager()
     private let favoriteManager = FavoriteManager()
-    private let genreManager = GenreManager()
+    var genreManager = GenreManager.shared
     var movie: Movie!
     
     private let detailView: DetailView = {
@@ -33,10 +32,6 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func didFavorite(){
-        favoriteManager.saveFavorite(movie: movie)
-    }
-    
 }
 
 extension DetailViewController: CodeView {
@@ -55,5 +50,11 @@ extension DetailViewController: CodeView {
         self.view.backgroundColor = UIColor(named: "colorWhite")
         self.title = "Movie"
         navigationController!.navigationBar.tintColor = .black
+    }
+}
+
+extension DetailViewController: DetailViewProtocol {
+    func didFavorite(){
+        self.favoriteManager.saveFavorite(movie: self.movie)
     }
 }

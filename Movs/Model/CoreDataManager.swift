@@ -6,11 +6,11 @@ class CoreDataManager {
 
     var favorites: [FavoritesCD] = []
     
-    func getFavorites() {
+    func getFavorites() -> [FavoritesCD] {
     
         guard let appDelegate =
            UIApplication.shared.delegate as? AppDelegate else {
-             return
+             return []
          }
 
          let managedContext = appDelegate.persistentContainer.viewContext
@@ -24,6 +24,7 @@ class CoreDataManager {
          } catch let error as NSError {
            print("Could not fetch. \(error), \(error.userInfo)")
          }
+        return favorites
     }
 
     func saveFavorite(movie: Movie) {

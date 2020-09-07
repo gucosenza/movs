@@ -3,6 +3,7 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
+    static var identifier: String = "Cell"
     var imageManager = ImageManager()
     
     private lazy var posterImage: UIImageView = {
@@ -26,6 +27,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         label.textColor = UIColor(named: "colorYellow")
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 1
+        label.accessibilityIdentifier = "nameMovieCell"
         return label
     }()
     

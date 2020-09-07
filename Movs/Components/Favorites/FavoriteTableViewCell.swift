@@ -45,10 +45,6 @@ class FavoriteTableViewCell: UITableViewCell {
         titleLabel.text = favorite.name
         yearLabel.text = favorite.year
         overviewLabel.text = favorite.overview
-//        posterImage.image = imageManager.posterImage(poster_path: movie.posterPath)
-//        titleLabel.text = movie.title
-//        yearLabel.text = String(movie.releaseDate.dropLast(6))
-//        overviewLabel.text = movie.overview
         
         setupViews()
     }
