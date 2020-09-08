@@ -3,6 +3,8 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
+    var applyFilterActionDelegate: ApplyFilterActionDelegate!
+    
     private lazy var applyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Apply", for: .normal)
@@ -20,7 +22,8 @@ class FilterViewController: UIViewController {
     }
     
     @objc func applyFilter() {
-        
+        applyFilterActionDelegate.applyFilter()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }
