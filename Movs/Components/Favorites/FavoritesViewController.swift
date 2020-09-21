@@ -3,12 +3,12 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 protocol ApplyFilterActionDelegate {
-    func applyFilter()
+    func applyFilter(date: String)
 }
 
 class FavoritesViewController: UIViewController {
     
-    let core = CoreDataManager()
+    private let favoriteManager = FavoriteManager.shared
     private let favoriteTableViewManager = FavoriteTableViewManager()
     let filterViewController = FilterViewController()
     
@@ -51,7 +51,7 @@ class FavoritesViewController: UIViewController {
         filterButton.tintColor = .black
         self.navigationItem.rightBarButtonItem  = filterButton
         
-        removeFilterClicked()
+        removeFilterHidden(isHidden: true)
     }
     
     override func viewDidLoad() {
@@ -67,7 +67,8 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            self.favoriteTableViewManager.favorites = self.core.getFavorites()
+//            self.favoriteTableViewManager.favorites = self.core.getFavorites()
+            self.favoriteManager.getFavorites()
             self.tableView.reloadData()
         }
     }
@@ -77,7 +78,13 @@ class FavoritesViewController: UIViewController {
     }
     
     @objc private func removeFilterClicked() {
-        removeFilterButton.isHidden = true
+        favoriteTableViewManager.isFiltering = false
+        removeFilterHidden(isHidden: true)
+        self.tableView.reloadData()
+    }
+    
+    func removeFilterHidden(isHidden: Bool) {
+        removeFilterButton.isHidden = isHidden
     }
 
 }
@@ -87,21 +94,9 @@ extension FavoritesViewController: CodeView {
         self.view.addSubview(stackView)
         stackView.addArrangedSubview(removeFilterButton)
         stackView.addArrangedSubview(tableView)
-//        self.view.addSubview(removeFilterButton)
-//        self.view.addSubview(tableView)
     }
     
     func setupConstraints() {
-        
-//        removeFilterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        removeFilterButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-//        removeFilterButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-//        removeFilterButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-//
-//        tableView.topAnchor.constraint(equalTo: removeFilterButton.bottomAnchor, constant: 0).isActive = true
-//        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-//        tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-//        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         
         stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
@@ -126,7 +121,9 @@ extension FavoritesViewController: CodeView {
 }
 
 extension FavoritesViewController: ApplyFilterActionDelegate {
-    func applyFilter() {
+    func applyFilter(date: String) {
+        self.favoriteManager.filterFavorite(date: date)
+        self.favoriteTableViewManager.isFiltering = true
         self.removeFilterButton.isHidden = false
     }
 }

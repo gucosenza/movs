@@ -4,10 +4,9 @@ import CoreData
 
 class CoreDataManager {
 
-    var favorites: [FavoritesCD] = []
-    
     func getFavorites() -> [FavoritesCD] {
-    
+        var favorites: [FavoritesCD] = []
+        
         guard let appDelegate =
            UIApplication.shared.delegate as? AppDelegate else {
              return []
@@ -53,33 +52,8 @@ class CoreDataManager {
 
         }
 
-    func deleteFavorite(favorite: FavoritesCD) {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<FavoritesCD>(entityName: "FavoritesCD")
-        fetchRequest.predicate = NSPredicate(format: "movieId = %@", "\(favorite.movieId)")
-        
-        
-        do {
-            let test = try managedContext.fetch(fetchRequest)
-            let objectToDelete = test[0] as NSManagedObject
-            managedContext.delete(objectToDelete)
-            
-            do {
-                try managedContext.save()
-            } catch  {
-                print(error)
-            }
-            
-        } catch {
-            print(error)
-        }
-        
-    }
-    
     func deleteFavorite(index: Int) {
+        var favorites: [FavoritesCD] = []
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext

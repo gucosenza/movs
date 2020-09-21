@@ -6,8 +6,8 @@ protocol DetailViewProtocol {
 
 class DetailViewController: UIViewController {
     
-    private let favoriteManager = FavoriteManager()
-    var genreManager = GenreManager.shared
+    private let favoriteManager = FavoriteManager.shared
+    private var genreManager = GenreManager.shared
     var movie: Movie!
     
     private let detailView: DetailView = {

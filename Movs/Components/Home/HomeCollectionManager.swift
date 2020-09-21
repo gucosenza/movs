@@ -14,17 +14,11 @@ class HomeCollectionManager: NSObject, UICollectionViewDataSource, UICollectionV
     var filteredMovies: [Movie] = []
     var buttonActionProtocol: ButtonActionProtocol!
     
-//    init(isFiltering: Bool) {
-//        self.isFiltering = isFiltering
-//    }
-
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return movies.count
         if isFiltering {
             return filteredMovies.count
         }else{

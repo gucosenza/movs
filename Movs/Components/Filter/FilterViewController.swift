@@ -4,6 +4,8 @@ import UIKit
 class FilterViewController: UIViewController {
     
     var applyFilterActionDelegate: ApplyFilterActionDelegate!
+    private let reuseIdentifier = "Cell"
+    private let filterTableViewManager = FilterTableViewManager()
     
     private lazy var applyButton: UIButton = {
         let button = UIButton(type: .system)
@@ -15,14 +17,27 @@ class FilterViewController: UIViewController {
         button.addTarget(self, action: #selector(applyFilter), for: .touchUpInside)
         return button
     }()
+    
+    lazy var tableView: UITableView = {
+            let table = UITableView()
+            table.translatesAutoresizingMaskIntoConstraints = false
+//            table.separatorStyle = .none
+            return table
+        }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.dataSource = filterTableViewManager
+        tableView.delegate = filterTableViewManager
+        
+        
         setupViews()
     }
     
     @objc func applyFilter() {
-        applyFilterActionDelegate.applyFilter()
+        applyFilterActionDelegate.applyFilter(date: "2018")
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -30,10 +45,16 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController: CodeView {
     func buildViewHierarchy() {
+        view.addSubview(tableView)
         view.addSubview(applyButton)
     }
     
     func setupConstraints() {
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: applyButton.topAnchor, constant: -20).isActive = true
+        
         applyButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         applyButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         applyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true

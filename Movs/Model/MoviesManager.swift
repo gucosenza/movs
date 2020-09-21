@@ -4,7 +4,7 @@ import Foundation
 
 class MoviesManager {
     
-    private var page: Int = 1
+    private var page: Int = 5
     var movies = [Movie]()
     private let networkManager = NetworkManager()
     
