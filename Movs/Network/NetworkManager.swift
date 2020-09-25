@@ -4,7 +4,8 @@ import Foundation
 class NetworkManager {
     
     private let network = Network()
-    var dictionaryGenres = [Int: String]()
+    private var dictionaryGenres = [Int: String]()
+    private var arrayGenres: [String] = []
 
     func loadMovies(onComplete: @escaping (MovieModel) -> Void, onError: @escaping (NetworkError) -> Void, page: Int) {
         
@@ -43,6 +44,7 @@ class NetworkManager {
                     let genresApi = try JSONDecoder().decode(GenresModel.self, from: data)
                 
                    for genre in genresApi.genres {
+                        
                        self.dictionaryGenres[genre.id] = genre.name
                    }
                    

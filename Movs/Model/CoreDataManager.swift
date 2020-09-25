@@ -3,6 +3,8 @@ import UIKit
 import CoreData
 
 class CoreDataManager {
+    
+    private var genreManager = GenreManager.shared
 
     func getFavorites() -> [FavoritesCD] {
         var favorites: [FavoritesCD] = []
@@ -43,6 +45,7 @@ class CoreDataManager {
             favoriteTemp.setValue(Int32(movie.id), forKeyPath: "movieId")
             favoriteTemp.setValue(movie.overview, forKeyPath: "overview")
             favoriteTemp.setValue(String(movie.releaseDate.dropLast(6)), forKeyPath: "year")
+            favoriteTemp.setValue(genreManager.getGenres(ids: movie.genreIDS), forKey: "genre")
 
             do {
               try managedContext.save()

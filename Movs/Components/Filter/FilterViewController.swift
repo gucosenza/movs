@@ -1,11 +1,16 @@
 
 import UIKit
 
+protocol OptionFilterProtocol {
+    func optionsFilterSelected(optionFilter: FilterTypes)
+}
+
 class FilterViewController: UIViewController {
     
     var applyFilterActionDelegate: ApplyFilterActionDelegate!
     private let reuseIdentifier = "Cell"
     private let filterTableViewManager = FilterTableViewManager()
+    var optionFilterViewController = OptionFilterViewController()
     
     private lazy var applyButton: UIButton = {
         let button = UIButton(type: .system)
@@ -21,7 +26,6 @@ class FilterViewController: UIViewController {
     lazy var tableView: UITableView = {
             let table = UITableView()
             table.translatesAutoresizingMaskIntoConstraints = false
-//            table.separatorStyle = .none
             return table
         }()
 
@@ -32,12 +36,17 @@ class FilterViewController: UIViewController {
         tableView.dataSource = filterTableViewManager
         tableView.delegate = filterTableViewManager
         
-        
+        filterTableViewManager.optionFilter = self
+
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     @objc func applyFilter() {
-        applyFilterActionDelegate.applyFilter(date: "2018")
+        applyFilterActionDelegate.applyFilter()
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -66,4 +75,11 @@ extension FilterViewController: CodeView {
         self.title = "Filtro"
     }
     
+}
+
+extension FilterViewController: OptionFilterProtocol {
+    func optionsFilterSelected(optionFilter: FilterTypes) {
+        optionFilterViewController.optionFilter = optionFilter
+        navigationController!.pushViewController(optionFilterViewController, animated: true)
+    }
 }

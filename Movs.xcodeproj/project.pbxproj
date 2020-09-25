@@ -13,6 +13,9 @@
 		7F64E4FF24EF6E0C00A96BB1 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E4FE24EF6E0C00A96BB1 /* FilterViewController.swift */; };
 		7F64E51F24F0CF6100A96BB1 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64E51E24F0CF6100A96BB1 /* SpinnerView.swift */; };
 		7F7CE0002517CAAB00C3753D /* FilterTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CDFFF2517CAAB00C3753D /* FilterTypes.swift */; };
+		7F7CE003251AA80900C3753D /* OptionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE002251AA80900C3753D /* OptionFilterViewController.swift */; };
+		7F7CE006251C06FB00C3753D /* OptionFilterTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE005251C06FB00C3753D /* OptionFilterTableViewManager.swift */; };
+		7F7CE00A251DA9F000C3753D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE009251DA9F000C3753D /* FilterManager.swift */; };
 		7F8A074E24F1B82800DD5DA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */; };
 		7F8A075124F1FAB100DD5DA0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */; };
 		7FB82D5224C3FCAD00745447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D5124C3FCAD00745447 /* AppDelegate.swift */; };
@@ -65,6 +68,9 @@
 		7F64E4FE24EF6E0C00A96BB1 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		7F64E51E24F0CF6100A96BB1 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		7F7CDFFF2517CAAB00C3753D /* FilterTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypes.swift; sourceTree = "<group>"; };
+		7F7CE002251AA80900C3753D /* OptionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterViewController.swift; sourceTree = "<group>"; };
+		7F7CE005251C06FB00C3753D /* OptionFilterTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterTableViewManager.swift; sourceTree = "<group>"; };
+		7F7CE009251DA9F000C3753D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7FB82D4E24C3FCAD00745447 /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +139,15 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		7F7CE001251AA78900C3753D /* OptionFilter */ = {
+			isa = PBXGroup;
+			children = (
+				7F7CE002251AA80900C3753D /* OptionFilterViewController.swift */,
+				7F7CE005251C06FB00C3753D /* OptionFilterTableViewManager.swift */,
+			);
+			path = OptionFilter;
+			sourceTree = "<group>";
+		};
 		7FB82D4524C3FCAD00745447 = {
 			isa = PBXGroup;
 			children = (
@@ -191,12 +206,13 @@
 		7FB82D9024C49D3900745447 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7FF92FD924F35D3A002F53F7 /* Spinner */,
-				7F64E4FD24EF6DD700A96BB1 /* Filter */,
-				7FBE3E6224C69D63000FF85E /* Detail */,
-				7FBE3E5124C61F51000FF85E /* Favorites */,
 				7FB82D9224C49D7E00745447 /* TabBar */,
 				7FB82D9124C49D6F00745447 /* Home */,
+				7FBE3E6224C69D63000FF85E /* Detail */,
+				7FF92FD924F35D3A002F53F7 /* Spinner */,
+				7FBE3E5124C61F51000FF85E /* Favorites */,
+				7F64E4FD24EF6DD700A96BB1 /* Filter */,
+				7F7CE001251AA78900C3753D /* OptionFilter */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -249,6 +265,7 @@
 				7FBE3E6F24C77BA1000FF85E /* ImageManager.swift */,
 				7FBE3E7324C78D9B000FF85E /* CoreDataManager.swift */,
 				7F7CDFFF2517CAAB00C3753D /* FilterTypes.swift */,
+				7F7CE009251DA9F000C3753D /* FilterManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,12 +446,15 @@
 				7F64E51F24F0CF6100A96BB1 /* SpinnerView.swift in Sources */,
 				7FBE3E6624C69DEC000FF85E /* DetailViewController.swift in Sources */,
 				7FBE3E5B24C68816000FF85E /* HomeCollectionViewCell.swift in Sources */,
+				7F7CE003251AA80900C3753D /* OptionFilterViewController.swift in Sources */,
 				7FB82D8F24C4905500745447 /* TabBarViewController.swift in Sources */,
 				7FBE3E7224C77BD3000FF85E /* Config.swift in Sources */,
 				7FB82D5C24C3FCAD00745447 /* Movs.xcdatamodeld in Sources */,
 				7FB82D5424C3FCAD00745447 /* SceneDelegate.swift in Sources */,
+				7F7CE00A251DA9F000C3753D /* FilterManager.swift in Sources */,
 				7F8A074E24F1B82800DD5DA0 /* HomeViewController.swift in Sources */,
 				7F8A075124F1FAB100DD5DA0 /* FavoritesViewController.swift in Sources */,
+				7F7CE006251C06FB00C3753D /* OptionFilterTableViewManager.swift in Sources */,
 				7FBE3E6824C69F5B000FF85E /* FavoriteManager.swift in Sources */,
 				7FB82D8524C4005C00745447 /* GenreModel.swift in Sources */,
 				7F0340EB25087D310006715E /* FilterTableViewManager.swift in Sources */,

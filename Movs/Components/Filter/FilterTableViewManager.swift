@@ -1,14 +1,10 @@
-//
-//  FilterTableViewManager.swift
-//  Movs
-//
-//  Created by gustavo.cosenza on 09/09/20.
-//  Copyright © 2020 gustavo.cosenza. All rights reserved.
-//
 
 import UIKit
 
 class FilterTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
+    
+    var optionFilter: OptionFilterProtocol!
+    private let filterManager = FilterManager.shared
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -19,24 +15,29 @@ class FilterTableViewManager: NSObject, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var description: String = ""
+
+        let cell: UITableViewCell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
    
         if indexPath.row == 0 {
-            description = "Date"
+            cell.textLabel!.text = "Date"
+            cell.detailTextLabel!.text = filterManager.dateOption
         } else {
-            description = "Genres"
+            cell.textLabel!.text = "Genres"
+            cell.detailTextLabel!.text = filterManager.genreOption
         }
         
-        let cell: UITableViewCell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
-        cell.textLabel!.text = description
-        cell.detailTextLabel!.text = "teste"
         cell.detailTextLabel?.textColor = UIColor(named: "colorYellow")
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row == 0 {
+            optionFilter.optionsFilterSelected(optionFilter: .date)
+        } else {
+            optionFilter.optionsFilterSelected(optionFilter: .genres)
+        }
     }
     
 }

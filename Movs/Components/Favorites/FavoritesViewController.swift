@@ -3,7 +3,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 protocol ApplyFilterActionDelegate {
-    func applyFilter(date: String)
+    func applyFilter()
 }
 
 class FavoritesViewController: UIViewController {
@@ -67,7 +67,6 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-//            self.favoriteTableViewManager.favorites = self.core.getFavorites()
             self.favoriteManager.getFavorites()
             self.tableView.reloadData()
         }
@@ -121,8 +120,8 @@ extension FavoritesViewController: CodeView {
 }
 
 extension FavoritesViewController: ApplyFilterActionDelegate {
-    func applyFilter(date: String) {
-        self.favoriteManager.filterFavorite(date: date)
+    func applyFilter() {
+        self.favoriteManager.filterFavorite()
         self.favoriteTableViewManager.isFiltering = true
         self.removeFilterButton.isHidden = false
     }

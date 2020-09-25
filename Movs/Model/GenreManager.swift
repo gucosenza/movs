@@ -6,6 +6,7 @@ class GenreManager {
     static let shared = GenreManager()
     private let networkManager = NetworkManager()
     var dictionaryGenres = [Int: String]()
+    var arrayGenres: [String] = []
     
     func getGenreApi() {
         
@@ -36,5 +37,12 @@ class GenreManager {
             genresMovie = genresMovie + dictionaryGenres[id]! + ", "
         }
         return String(genresMovie.dropLast(2))
+    }
+    
+    func getGenresFilter() {
+        arrayGenres.removeAll()
+        for (key, value) in dictionaryGenres {
+            arrayGenres.append(value)
+        }
     }
 }
