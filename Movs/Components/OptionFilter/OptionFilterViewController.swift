@@ -32,14 +32,14 @@ class OptionFilterViewController: UIViewController {
         return table
     }()
     
-//    init(optionFilter: FilterTypes) {
-//        self.optionFilter = optionFilter
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(optionFilter: FilterTypes) {
+        self.optionFilter = optionFilter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

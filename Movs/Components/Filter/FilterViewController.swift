@@ -10,7 +10,6 @@ class FilterViewController: UIViewController {
     var applyFilterActionDelegate: ApplyFilterActionDelegate!
     private let reuseIdentifier = "Cell"
     private let filterTableViewManager = FilterTableViewManager()
-    var optionFilterViewController = OptionFilterViewController()
     
     private lazy var applyButton: UIButton = {
         let button = UIButton(type: .system)
@@ -79,7 +78,6 @@ extension FilterViewController: CodeView {
 
 extension FilterViewController: OptionFilterProtocol {
     func optionsFilterSelected(optionFilter: FilterTypes) {
-        optionFilterViewController.optionFilter = optionFilter
-        navigationController!.pushViewController(optionFilterViewController, animated: true)
+        navigationController!.pushViewController(OptionFilterViewController(optionFilter: optionFilter), animated: true)
     }
 }
