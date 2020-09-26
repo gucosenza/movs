@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
             }
         }, onError: { (error) in
             print("Ocorreu um erro ao carregar os filmes")
-        }, page: 5)
+        }, page: 1)
         
     }
     

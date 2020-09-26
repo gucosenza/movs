@@ -7,6 +7,10 @@ protocol SelectOptionProtocol {
     func selectOption (value: String, filterType: FilterTypes)
 }
 
+protocol OptionFilterViewDelegate {
+    func applyOption()
+}
+
 class OptionFilterViewController: UIViewController {
     
     var optionFilter: FilterTypes? = nil
@@ -15,22 +19,7 @@ class OptionFilterViewController: UIViewController {
     private let genreManager = GenreManager.shared
     private let filterManager = FilterManager.shared
     
-    private lazy var chooseButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Choose", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "System", size: 20)
-        button.backgroundColor = UIColor(named: "colorYellow")
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(applyOption), for: .touchUpInside)
-        return button
-    }()
-    
-    lazy var tableView: UITableView = {
-        let table = UITableView()
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
-    }()
+    private var optionFilterView = OptionFilterView()
     
     init(optionFilter: FilterTypes) {
         self.optionFilter = optionFilter
@@ -41,15 +30,19 @@ class OptionFilterViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = optionFilterView
+        self.title = "Filtro"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.dataSource = optionFilterTableViewManager
-        tableView.delegate = optionFilterTableViewManager
+        optionFilterView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        optionFilterView.tableView.dataSource = optionFilterTableViewManager
+        optionFilterView.tableView.delegate = optionFilterTableViewManager
         optionFilterTableViewManager.selectOptionProtocol = self
-        
-        setupViews()
+        optionFilterView.optionFilterViewDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,10 +60,12 @@ class OptionFilterViewController: UIViewController {
         case .none:
             print("erro")
         }
-        self.tableView.reloadData()
+        self.optionFilterView.tableView.reloadData()
     }
-    
-    @objc func applyOption() {
+}
+
+extension OptionFilterViewController: OptionFilterViewDelegate{
+    func applyOption() {
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -84,29 +79,4 @@ extension OptionFilterViewController: SelectOptionProtocol {
             filterManager.genreOption = value
         }
     }
-}
-
-extension OptionFilterViewController: CodeView {
-    func buildViewHierarchy() {
-        view.addSubview(tableView)
-        view.addSubview(chooseButton)
-    }
-    
-    func setupConstraints() {
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: chooseButton.topAnchor, constant: -20).isActive = true
-        
-        chooseButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        chooseButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        chooseButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        chooseButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true //esquerda
-        chooseButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true //direita
-    }
-    
-    func setupAdditionalConfiguration() {
-        self.title = "Filtro"
-    }
-    
 }

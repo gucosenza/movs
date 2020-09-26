@@ -33,7 +33,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     func configure(movie: Movie, favorite: Bool) {
         contentView.backgroundColor = UIColor(named: "colorDarkBlue")
-        posterImage.image = imageManager.posterImage(poster_path: movie.posterPath)
+        posterImage.image = imageManager.getImage(type: .poster, image: movie.posterPath)
         titleLabel.text = movie.title
         if favorite == true {
             favoriteImage.image = UIImage(named: "favorite_full_icon") as UIImage?

@@ -17,6 +17,7 @@ class FilterViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "System", size: 20)
         button.backgroundColor = UIColor(named: "colorYellow")
+        button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(applyFilter), for: .touchUpInside)
         return button

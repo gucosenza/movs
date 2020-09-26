@@ -13,13 +13,8 @@ struct Config {
         return value
     }
     
-    static var posterPath: String {
-        guard let value:String = Bundle.main.infoDictionary?["posterPath"] as? String else {return "erro"}
-        return value
-    }
-    
-    static var backdropPath: String {
-        guard let value:String = Bundle.main.infoDictionary?["backdropPath"] as? String else {return "erro"}
+    static var imagePath: String {
+        guard let value:String = Bundle.main.infoDictionary?["imagePath"] as? String else {return "erro"}
         return value
     }
     

@@ -56,11 +56,9 @@
 	</array>
 	<key>apiKey</key>
 	<string>e4aa100e47a2d27f927f4797a4bf5607</string>
-	<key>backdropPath</key>
-	<string>https://image.tmdb.org/t/p/w300/</string>
 	<key>basePath</key>
 	<string>https://api.themoviedb.org/3</string>
-	<key>posterPath</key>
-	<string>https://image.tmdb.org/t/p/w185/</string>
+	<key>imagePath</key>
+	<string>https://image.tmdb.org/t/p</string>
 </dict>
 </plist>

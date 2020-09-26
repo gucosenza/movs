@@ -9,12 +9,8 @@ class NetworkManager {
 
     func loadMovies(onComplete: @escaping (MovieModel) -> Void, onError: @escaping (NetworkError) -> Void, page: Int) {
         
-        let urlMovies = Config.basePath + "/movie/popular?page=" + String(page) + "&language=en-US&api_key=" + Config.apiKey
-        guard let url = URL(string: urlMovies ) else {
-            onError(.url)
-            return
-        }
-        print("url: " + urlMovies)
+        let url = Endpoints.urlMovies(page).url
+        print("url: \(url)")
         
         network.rest(url: url) { (data, error) in
             guard let data = data else {return}
@@ -32,11 +28,8 @@ class NetworkManager {
     
     func loadGenre(onComplete: @escaping (Dictionary<Int, String>) -> Void, onError: @escaping (NetworkError) -> Void) {
         
-        let urlGenres = Config.basePath + "/genre/movie/list?language=en-US&api_key=" + Config.apiKey
-        guard let url = URL(string: urlGenres ) else {
-            onError(.url)
-            return
-        }
+        let url = Endpoints.urlGenres.url
+        print("urlGenres: \(url)")
         
         network.rest(url: url) { (data, error) in
             guard let data = data else {return}

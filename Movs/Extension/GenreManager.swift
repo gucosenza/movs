@@ -30,7 +30,6 @@ class GenreManager {
         }
     }
     
-    
     func getGenres(ids: [Int]) -> String {
         var genresMovie = ""
         for id in ids {
