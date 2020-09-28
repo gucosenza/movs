@@ -21,6 +21,7 @@
 		7F8365A025218B1800BD33BC /* EndpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83659F25218B1800BD33BC /* EndpointsTests.swift */; };
 		7F8365A2252193AD00BD33BC /* GenreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */; };
 		7F8365A42521A28300BD33BC /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8365A32521A28300BD33BC /* FilterView.swift */; };
+		7F8365A62521AD6D00BD33BC /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8365A52521AD6D00BD33BC /* FavoritesView.swift */; };
 		7F8A074E24F1B82800DD5DA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */; };
 		7F8A075124F1FAB100DD5DA0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */; };
 		7FB82D5224C3FCAD00745447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D5124C3FCAD00745447 /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		7F83659F25218B1800BD33BC /* EndpointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsTests.swift; sourceTree = "<group>"; };
 		7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreManagerTests.swift; sourceTree = "<group>"; };
 		7F8365A32521A28300BD33BC /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		7F8365A52521AD6D00BD33BC /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7FB82D4E24C3FCAD00745447 /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				7FBE3E7524C88513000FF85E /* FavoriteTableViewCell.swift */,
 				7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */,
 				7F47488224F614F3003D92B7 /* FavoriteTableViewManager.swift */,
+				7F8365A52521AD6D00BD33BC /* FavoritesView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				7F7CE003251AA80900C3753D /* OptionFilterViewController.swift in Sources */,
 				7FB82D8F24C4905500745447 /* TabBarViewController.swift in Sources */,
 				7FBE3E7224C77BD3000FF85E /* Config.swift in Sources */,
+				7F8365A62521AD6D00BD33BC /* FavoritesView.swift in Sources */,
 				7FB82D5C24C3FCAD00745447 /* Movs.xcdatamodeld in Sources */,
 				7FB82D5424C3FCAD00745447 /* SceneDelegate.swift in Sources */,
 				7F7CE00A251DA9F000C3753D /* FilterManager.swift in Sources */,
