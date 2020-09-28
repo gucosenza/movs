@@ -15,7 +15,7 @@ class NetworkManager {
         network.rest(url: url) { (data, error) in
             guard let data = data else {return}
                do{
-                   let moviesApi = try JSONDecoder().decode(MovieModel.self, from: data)
+                let moviesApi = try JSONDecoder().decode(MovieModel.self, from: data)
                    onComplete(moviesApi)
                    print("Requisiçao movies feita!!")
                }catch {

@@ -18,6 +18,8 @@
 		7F7CE003251AA80900C3753D /* OptionFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE002251AA80900C3753D /* OptionFilterViewController.swift */; };
 		7F7CE006251C06FB00C3753D /* OptionFilterTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE005251C06FB00C3753D /* OptionFilterTableViewManager.swift */; };
 		7F7CE00A251DA9F000C3753D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7CE009251DA9F000C3753D /* FilterManager.swift */; };
+		7F8365A025218B1800BD33BC /* EndpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83659F25218B1800BD33BC /* EndpointsTests.swift */; };
+		7F8365A2252193AD00BD33BC /* GenreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */; };
 		7F8A074E24F1B82800DD5DA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */; };
 		7F8A075124F1FAB100DD5DA0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */; };
 		7FB82D5224C3FCAD00745447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D5124C3FCAD00745447 /* AppDelegate.swift */; };
@@ -25,7 +27,6 @@
 		7FB82D5C24C3FCAD00745447 /* Movs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D5A24C3FCAD00745447 /* Movs.xcdatamodeld */; };
 		7FB82D5E24C3FCB100745447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB82D5D24C3FCB100745447 /* Assets.xcassets */; };
 		7FB82D6124C3FCB100745447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FB82D5F24C3FCB100745447 /* LaunchScreen.storyboard */; };
-		7FB82D6C24C3FCB200745447 /* MovsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D6B24C3FCB200745447 /* MovsTests.swift */; };
 		7FB82D7724C3FCB200745447 /* MovsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D7624C3FCB200745447 /* MovsUITests.swift */; };
 		7FB82D8524C4005C00745447 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D8424C4005C00745447 /* GenreModel.swift */; };
 		7FB82D8724C400F400745447 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB82D8624C400F400745447 /* Network.swift */; };
@@ -75,6 +76,8 @@
 		7F7CE002251AA80900C3753D /* OptionFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterViewController.swift; sourceTree = "<group>"; };
 		7F7CE005251C06FB00C3753D /* OptionFilterTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterTableViewManager.swift; sourceTree = "<group>"; };
 		7F7CE009251DA9F000C3753D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		7F83659F25218B1800BD33BC /* EndpointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsTests.swift; sourceTree = "<group>"; };
+		7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreManagerTests.swift; sourceTree = "<group>"; };
 		7F8A074D24F1B82800DD5DA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F8A075024F1FAB100DD5DA0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		7FB82D4E24C3FCAD00745447 /* Movs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +88,6 @@
 		7FB82D6024C3FCB100745447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FB82D6224C3FCB100745447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB82D6724C3FCB200745447 /* MovsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FB82D6B24C3FCB200745447 /* MovsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovsTests.swift; sourceTree = "<group>"; };
 		7FB82D6D24C3FCB200745447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FB82D7224C3FCB200745447 /* MovsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB82D7624C3FCB200745447 /* MovsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovsUITests.swift; sourceTree = "<group>"; };
@@ -193,8 +195,9 @@
 		7FB82D6A24C3FCB200745447 /* MovsTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FB82D6B24C3FCB200745447 /* MovsTests.swift */,
 				7FB82D6D24C3FCB200745447 /* Info.plist */,
+				7F83659F25218B1800BD33BC /* EndpointsTests.swift */,
+				7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */,
 			);
 			path = MovsTests;
 			sourceTree = "<group>";
@@ -473,7 +476,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FB82D6C24C3FCB200745447 /* MovsTests.swift in Sources */,
+				7F8365A2252193AD00BD33BC /* GenreManagerTests.swift in Sources */,
+				7F8365A025218B1800BD33BC /* EndpointsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

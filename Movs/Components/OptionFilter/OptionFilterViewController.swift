@@ -3,7 +3,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-protocol SelectOptionProtocol {
+protocol OptionFilterTableViewManagerDelegate {
     func selectOption (value: String, filterType: FilterTypes)
 }
 
@@ -41,6 +41,7 @@ class OptionFilterViewController: UIViewController {
         optionFilterView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         optionFilterView.tableView.dataSource = optionFilterTableViewManager
         optionFilterView.tableView.delegate = optionFilterTableViewManager
+        
         optionFilterTableViewManager.selectOptionProtocol = self
         optionFilterView.optionFilterViewDelegate = self
     }
@@ -70,7 +71,7 @@ extension OptionFilterViewController: OptionFilterViewDelegate{
     }
 }
 
-extension OptionFilterViewController: SelectOptionProtocol {
+extension OptionFilterViewController: OptionFilterTableViewManagerDelegate {
     func selectOption (value: String, filterType: FilterTypes) {
         switch filterType {
         case .date:

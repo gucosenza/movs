@@ -3,7 +3,7 @@ import UIKit
 
 class OptionFilterTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var selectOptionProtocol: SelectOptionProtocol!
+    var selectOptionProtocol: OptionFilterTableViewManagerDelegate!
     var typeFilter: FilterTypes!
     private var favoritesManager = FavoriteManager.shared
     private let genreManager = GenreManager.shared
