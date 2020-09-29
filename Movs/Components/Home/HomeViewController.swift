@@ -5,26 +5,13 @@ class HomeViewController: UIViewController {
     
     private let networkManager = NetworkManager()
     var genreManager = GenreManager.shared
-    let spinner = SpinnerView()
     let homeCollectionManager = HomeCollectionManager()
     let searchController = UISearchController(searchResultsController: nil)
-    
-    lazy var collectionView: UICollectionView = {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let border = (( UIScreen.main.bounds.width - (185*2)) / 3)
-        layout.sectionInset = UIEdgeInsets(top: 10, left: border, bottom: 0, right: border)
-        layout.itemSize = CGSize(width: 185, height: 308)
-        layout.minimumInteritemSpacing = ((UIScreen.main.bounds.width - (185*2)) / 3)
-        layout.minimumLineSpacing = ((UIScreen.main.bounds.width - (185*2)) / 3)
-        var collect = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collect.backgroundColor = .white
-        collect.translatesAutoresizingMaskIntoConstraints = false
-        return collect
-    }()
+    let homeView = HomeView()
     
     override func loadView() {
         super.loadView()
+        self.view = homeView
         
         self.title = "Movies"
                
@@ -46,11 +33,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.dataSource = homeCollectionManager
-        collectionView.delegate = homeCollectionManager
-        collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        homeView.collectionView.dataSource = homeCollectionManager
+        homeView.collectionView.delegate = homeCollectionManager
+        homeView.collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         
-        self.view = spinner.startSpinner(self.view.bounds)
+        homeView.startSpinner()
         
         genreManager.getGenreApi()
         
@@ -59,9 +46,8 @@ class HomeViewController: UIViewController {
                 self.homeCollectionManager.movies.append(movie)
             }
             DispatchQueue.main.async {
-                self.spinner.removeSpinner(spinner: self.view)
-                self.view = self.collectionView
-                self.collectionView.reloadData()
+                self.homeView.removeSpinner()
+                self.homeView.collectionView.reloadData()
             }
         }, onError: { (error) in
             print("Ocorreu um erro ao carregar os filmes")
@@ -71,7 +57,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.homeView.collectionView.reloadData()
         }
     }
     
@@ -90,7 +76,7 @@ extension HomeViewController: ButtonActionProtocol {
     }
     
     func reloadFilter() {
-        self.collectionView.reloadData()
+        self.homeView.collectionView.reloadData()
     }
 }
 
