@@ -34,18 +34,16 @@ class NetworkManager {
         network.rest(url: url) { (data, error) in
             guard let data = data else {return}
                do{
-                    let genresApi = try JSONDecoder().decode(GenresModel.self, from: data)
-                
-                   for genre in genresApi.genres {
-                        
-                       self.dictionaryGenres[genre.id] = genre.name
-                   }
-                   
-                   onComplete(self.dictionaryGenres)
+                let genresApi = try JSONDecoder().decode(GenresModel.self, from: data)
+                for genre in genresApi.genres {
+                    self.dictionaryGenres[genre.id] = genre.name
+                }
+        
+                onComplete(self.dictionaryGenres)
                 print("Requisiçao genre feita!!")
-               }catch {
+               } catch {
                    print(error)
-                    onError(.invalidJson)
+                onError(.invalidJson)
                }
         }
     }
