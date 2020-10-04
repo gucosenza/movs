@@ -4,6 +4,7 @@ import UIKit
 protocol ButtonActionProtocol: AnyObject {
     func navigationDetail(movie: Movie)
     func reloadFilter()
+    func getMoreMovies()
 }
 
 class HomeCollectionManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -45,6 +46,13 @@ class HomeCollectionManager: NSObject, UICollectionViewDataSource, UICollectionV
             } else {
                 buttonActionProtocol.navigationDetail(movie: movies[index.row])
             }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == movies.count - 10 {
+            print("carrega mais")
+            buttonActionProtocol.getMoreMovies()
         }
     }
     

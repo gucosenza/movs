@@ -7,7 +7,10 @@ class HomeViewController: UIViewController {
     var genreManager = GenreManager.shared
     let homeCollectionManager = HomeCollectionManager()
     let searchController = UISearchController(searchResultsController: nil)
-    let homeView = HomeView()
+    private let homeView = HomeView()
+    private var isFetchInProgress: Bool = false
+    private var page: Int = 1
+    private var total = 0
     
     override func loadView() {
         super.loadView()
@@ -41,24 +44,45 @@ class HomeViewController: UIViewController {
         
         genreManager.getGenreApi()
         
-        networkManager.loadMovies(onComplete: { (moviesRest) in
-            for movie in moviesRest.results {
-                self.homeCollectionManager.movies.append(movie)
-            }
-            DispatchQueue.main.async {
-                self.homeView.removeSpinner()
-                self.homeView.collectionView.reloadData()
-            }
-        }, onError: { (error) in
-            print("Ocorreu um erro ao carregar os filmes")
-        }, page: 1)
-        
+        getMovies()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.homeView.collectionView.reloadData()
         }
+    }
+    
+    func getMovies () {
+        guard !isFetchInProgress else {
+          return
+        }
+        
+        isFetchInProgress = true
+        networkManager.loadMovies(onComplete: { (moviesRest) in
+            
+            
+            for movie in moviesRest.results {
+                self.homeCollectionManager.movies.append(movie)
+            }
+            DispatchQueue.main.async {
+                self.page += 1
+                self.isFetchInProgress = false
+                self.total = moviesRest.totalResults
+                self.homeView.removeSpinner()
+                self.homeView.collectionView.reloadData()
+            }
+ 
+        }, onError: { (error) in
+            self.isFetchInProgress = false
+            print("Ocorreu um erro ao carregar os filmes")
+        }, page: self.page)
+    }
+    
+    private func calculateIndexPathsToReload(from newMovies: [Movie]) -> [IndexPath] {
+      let startIndex = homeCollectionManager.movies.count - newMovies.count
+      let endIndex = startIndex + newMovies.count
+      return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -71,6 +95,13 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: ButtonActionProtocol {
+    func getMoreMovies() {
+        if !isFetchInProgress && self.homeCollectionManager.movies.count <= total {
+            self.getMovies()
+            self.homeView.collectionView.reloadData()
+        }
+    }
+    
     func navigationDetail(movie: Movie) {
         navigationController!.pushViewController(DetailViewController(movie: movie), animated: true)
     }
