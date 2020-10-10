@@ -11,18 +11,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    private var applicationCoordinator: TabCoordinator?
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = TabBarViewController()
-            window.backgroundColor = .white
+            let applicationCoordinator = TabCoordinator(window: window)
+            
             self.window = window
-            window.makeKeyAndVisible()
+            self.applicationCoordinator = applicationCoordinator
+            
+            applicationCoordinator.start()
         }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

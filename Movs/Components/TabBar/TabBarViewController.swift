@@ -17,7 +17,6 @@ class TabBarViewController: UITabBarController {
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorite_empty_icon"), tag: 1)
         
         let viewControllerList = [ homeViewController, favoritesViewController ]
-//        let viewControllerList = [ favoritesViewController, homeViewController ]
         viewControllers = viewControllerList.map { UINavigationController(rootViewController: $0) }
     }
 }
