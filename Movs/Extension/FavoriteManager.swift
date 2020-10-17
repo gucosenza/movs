@@ -9,6 +9,7 @@ class FavoriteManager {
     var favorites: [FavoritesCD] = []
     var filteredFavorites: [FavoritesCD] = []
     var yearFavorites: [String] = []
+    var isFiltering: Bool = false
     
     func getFavorites() {
         favorites = coreDataManager.getFavorites()
