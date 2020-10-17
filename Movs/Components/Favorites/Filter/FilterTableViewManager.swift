@@ -20,10 +20,10 @@ class FilterTableViewManager: NSObject, UITableViewDataSource, UITableViewDelega
    
         if indexPath.row == 0 {
             cell.textLabel!.text = "Date"
-            cell.detailTextLabel!.text = filterManager.dateOption
+            cell.detailTextLabel!.text = filterManager.getDateOption()
         } else {
             cell.textLabel!.text = "Genres"
-            cell.detailTextLabel!.text = filterManager.genreOption
+            cell.detailTextLabel!.text = filterManager.getGenreOption()
         }
         
         cell.detailTextLabel?.textColor = UIColor(named: "colorYellow")

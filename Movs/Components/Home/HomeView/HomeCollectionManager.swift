@@ -50,10 +50,10 @@ class HomeCollectionManager: NSObject, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == movies.count - 10 {
-            print("carrega mais")
-            buttonActionProtocol.getMoreMovies()
-        }
+//        if indexPath.row == movies.count - 10 {
+//            print("carrega mais")
+//            buttonActionProtocol.getMoreMovies()
+//        }
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {

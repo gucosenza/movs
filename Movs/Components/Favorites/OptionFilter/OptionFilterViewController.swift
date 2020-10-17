@@ -11,6 +11,10 @@ protocol OptionFilterViewDelegate {
     func applyOption()
 }
 
+protocol OptionFilterViewControllerCoordinator {
+    func optionChosen()
+}
+
 class OptionFilterViewController: UIViewController {
     
     var optionFilter: FilterTypes? = nil
@@ -18,6 +22,7 @@ class OptionFilterViewController: UIViewController {
     private let favoriteManager = FavoriteManager.shared
     private let genreManager = GenreManager.shared
     private let filterManager = FilterManager.shared
+    var coordinator: OptionFilterViewControllerCoordinator?
     
     private var optionFilterView = OptionFilterView()
     
@@ -65,9 +70,9 @@ class OptionFilterViewController: UIViewController {
     }
 }
 
-extension OptionFilterViewController: OptionFilterViewDelegate{
+extension OptionFilterViewController: OptionFilterViewDelegate {
     func applyOption() {
-        self.navigationController?.popViewController(animated: true)
+        coordinator?.optionChosen()
     }
 }
 
@@ -75,9 +80,9 @@ extension OptionFilterViewController: OptionFilterTableViewManagerDelegate {
     func selectOption (value: String, filterType: FilterTypes) {
         switch filterType {
         case .date:
-            filterManager.dateOption = value
+            filterManager.setDateOption(date: value)
         case .genres:
-            filterManager.genreOption = value
+            filterManager.setGenreOption(genre: value)
         }
     }
 }

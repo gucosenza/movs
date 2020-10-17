@@ -5,13 +5,14 @@ protocol OptionFilterProtocol {
     func optionsFilterSelected(optionFilter: FilterTypes)
 }
 
-protocol FilterViewDelegate {
-    func applyFilterView()
+protocol FilterViewControllerCoordinator {
+    func applyFilter()
+    func listFilterOption(optionFilter: FilterTypes)
 }
 
 class FilterViewController: UIViewController {
     
-    var applyFilterActionDelegate: ApplyFilterActionDelegate!
+    var filterViewControllerCoordinator: FilterViewControllerCoordinator!
     private let reuseIdentifier = "Cell"
     private let filterTableViewManager = FilterTableViewManager()
     let filterView = FilterView()
@@ -39,13 +40,12 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController: FilterViewDelegate {
     func applyFilterView() {
-        applyFilterActionDelegate.applyFilter()
-        self.navigationController?.popToRootViewController(animated: true)
+        filterViewControllerCoordinator.applyFilter()
     }
 }
 
 extension FilterViewController: OptionFilterProtocol {
     func optionsFilterSelected(optionFilter: FilterTypes) {
-        navigationController!.pushViewController(OptionFilterViewController(optionFilter: optionFilter), animated: true)
+        filterViewControllerCoordinator.listFilterOption(optionFilter: optionFilter)
     }
 }

@@ -74,8 +74,8 @@ extension FavoritesView: CodeView {
         removeFilterButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
 
         tableView.topAnchor.constraint(equalTo: removeFilterButton.bottomAnchor, constant: 0).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
     }
 }
