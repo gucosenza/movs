@@ -1,6 +1,10 @@
 
 import UIKit
 
+protocol FilterViewDelegate {
+    func applyFilterView()
+}
+
 class FilterView: UIView {
     
     var filterViewDelegate: FilterViewDelegate!
@@ -25,6 +29,7 @@ class FilterView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .white
         setupViews()
     }
     

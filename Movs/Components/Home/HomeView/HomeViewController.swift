@@ -1,8 +1,13 @@
 
 import UIKit
 
+protocol HomeViewControllerCoordinator {
+    func homeViewControllerDidSelectMovie(movie: Movie)
+}
+
 class HomeViewController: UIViewController {
     
+    var coordinator: HomeViewControllerCoordinator!
     private let networkManager = NetworkManager()
     var genreManager = GenreManager.shared
     let homeCollectionManager = HomeCollectionManager()
@@ -38,7 +43,8 @@ class HomeViewController: UIViewController {
         
         homeView.collectionView.dataSource = homeCollectionManager
         homeView.collectionView.delegate = homeCollectionManager
-        homeView.collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        homeView.collectionView.register(HomeCollectionViewCell.self,
+                                         forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
         
         homeView.startSpinner()
         
@@ -103,7 +109,7 @@ extension HomeViewController: ButtonActionProtocol {
     }
     
     func navigationDetail(movie: Movie) {
-        navigationController!.pushViewController(DetailViewController(movie: movie), animated: true)
+        coordinator?.homeViewControllerDidSelectMovie(movie: movie)
     }
     
     func reloadFilter() {

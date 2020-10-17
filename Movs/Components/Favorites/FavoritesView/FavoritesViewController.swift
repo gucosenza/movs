@@ -2,21 +2,21 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-protocol ApplyFilterActionDelegate {
-    func applyFilter()
-}
-
 protocol FavoritesViewDelegate {
     func removeFilter()
+}
+
+protocol FavoritesViewCoordinator {
+    func favoritesViewControllerSelectFilter()
 }
 
 class FavoritesViewController: UIViewController {
     
     private let favoriteManager = FavoriteManager.shared
     private let favoriteTableViewManager = FavoriteTableViewManager()
-    let filterViewController = FilterViewController()
-    
+    private let filterManager = FilterManager.shared
     let favoritesView = FavoritesView()
+    var coordinator: FavoritesViewCoordinator!
 
     override func loadView() {
         super.loadView()
@@ -38,7 +38,6 @@ class FavoritesViewController: UIViewController {
         favoritesView.tableView.delegate = favoriteTableViewManager
         favoritesView.tableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
-        filterViewController.applyFilterActionDelegate = self
         favoritesView.favoritesViewDelegate = self
     }
     
@@ -50,7 +49,13 @@ class FavoritesViewController: UIViewController {
     }
     
     @objc private func filterClicked() {
-        navigationController!.pushViewController(filterViewController, animated: true)
+        coordinator.favoritesViewControllerSelectFilter()
+    }
+    
+    func applyFilter() {
+        self.favoriteManager.filterFavorite()
+        self.favoriteTableViewManager.isFiltering = true
+        self.favoritesView.removeFilterHidden(isHidden: false)
     }
 
 }
@@ -58,14 +63,8 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController: FavoritesViewDelegate {
     func removeFilter() {
         favoriteTableViewManager.isFiltering = false
+        filterManager.setDateOption(date: "")
+        filterManager.setGenreOption(genre: "")
         self.favoritesView.tableView.reloadData()
-    }
-}
-
-extension FavoritesViewController: ApplyFilterActionDelegate {
-    func applyFilter() {
-        self.favoriteManager.filterFavorite()
-        self.favoriteTableViewManager.isFiltering = true
-        self.favoritesView.removeFilterHidden(isHidden: false)
     }
 }
