@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3920E47A256F65B1007A3713 /* FilterManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3920E479256F65B1007A3713 /* FilterManagerTests.swift */; };
+		3967C5AC25700F1700967AF2 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967C5AB25700F1700967AF2 /* UITableView+Ext.swift */; };
 		3981AF1A253421DF00EA6D0F /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AF19253421DF00EA6D0F /* DetailCoordinator.swift */; };
 		39887BB32532DF6A001250D5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39887BB22532DF69001250D5 /* AppCoordinator.swift */; };
 		39887BB52532E485001250D5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39887BB42532E485001250D5 /* HomeCoordinator.swift */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		3920E479256F65B1007A3713 /* FilterManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManagerTests.swift; sourceTree = "<group>"; };
+		3967C5AB25700F1700967AF2 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		3981AF19253421DF00EA6D0F /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		39887BB22532DF69001250D5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		39887BB42532E485001250D5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				7FBE3E6724C69F5B000FF85E /* FavoriteManager.swift */,
 				7FBE3E6F24C77BA1000FF85E /* ImageManager.swift */,
 				7FBE3E7324C78D9B000FF85E /* CoreDataManager.swift */,
+				3967C5AB25700F1700967AF2 /* UITableView+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				7F46B938251ECA0E009094FF /* Endpoints.swift in Sources */,
 				7F47487B24F45037003D92B7 /* HomeCollectionManager.swift in Sources */,
 				7F5B169E2531661600B6229D /* TabCoordinator.swift in Sources */,
+				3967C5AC25700F1700967AF2 /* UITableView+Ext.swift in Sources */,
 				7F46B936251E7FC1009094FF /* OptionFilterView.swift in Sources */,
 				7F7CE0002517CAAB00C3753D /* FilterTypes.swift in Sources */,
 				39887BB72532E533001250D5 /* FavoritesCoordinator.swift in Sources */,

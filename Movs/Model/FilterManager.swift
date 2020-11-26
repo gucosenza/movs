@@ -9,7 +9,11 @@ struct FilterOption {
 class FilterManager {
     
     static let shared = FilterManager()
-    private var filterOption = FilterOption(date: "", genre: "")
+    private var filterOption: FilterOption
+    
+    init() {
+        filterOption = FilterOption(date: "", genre: "")
+    }
     
     func filter(favorites: [FavoritesCD]) -> [FavoritesCD] {
         var filtered = favorites

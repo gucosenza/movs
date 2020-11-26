@@ -18,6 +18,7 @@ class OptionFilterView: UIView {
     
     lazy var tableView: UITableView = {
         let table = UITableView()
+        table.removeExtraCellLines()
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
