@@ -10,12 +10,7 @@ class FilterView: UIView {
     var filterViewDelegate: FilterViewDelegate!
 
     private lazy var applyButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Apply", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: "System", size: 20)
-        button.backgroundColor = UIColor(named: "colorYellow")
-        button.layer.cornerRadius = 10
+        let button = UIButton.ConfirmButton.build(title: "Apply")
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(applyFilter), for: .touchUpInside)
         return button
