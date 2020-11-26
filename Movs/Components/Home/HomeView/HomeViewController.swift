@@ -104,7 +104,9 @@ extension HomeViewController: ButtonActionProtocol {
     func getMoreMovies() {
         if !isFetchInProgress && self.homeCollectionManager.movies.count <= total {
             self.getMovies()
-            self.homeView.collectionView.reloadData()
+//            self.homeView.collectionView.reloadData()
+            self.homeView.collectionView.insertSections(IndexSet(integer: 2))
+//            self.homeView.collectionView.dataSource.apply
         }
     }
     
