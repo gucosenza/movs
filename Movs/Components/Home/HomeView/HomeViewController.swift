@@ -10,10 +10,14 @@ class HomeViewController: UIViewController {
     var coordinator: HomeViewControllerCoordinator!
     private let networkManager = NetworkManager()
     var genreManager = GenreManager.shared
+    
     let homeCollectionManager = HomeCollectionManager()
-    let searchController = UISearchController(searchResultsController: nil)
     private let homeView = HomeView()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     private var isFetchInProgress: Bool = false
+    
     private var page: Int = 1
     private var total = 0
     
@@ -104,9 +108,6 @@ extension HomeViewController: ButtonActionProtocol {
     func getMoreMovies() {
         if !isFetchInProgress && self.homeCollectionManager.movies.count <= total {
             self.getMovies()
-//            self.homeView.collectionView.reloadData()
-            self.homeView.collectionView.insertSections(IndexSet(integer: 2))
-//            self.homeView.collectionView.dataSource.apply
         }
     }
     

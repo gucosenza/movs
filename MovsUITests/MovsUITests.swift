@@ -1,10 +1,3 @@
-//
-//  MovsUITests.swift
-//  MovsUITests
-//
-//  Created by gustavo.cosenza on 19/07/20.
-//  Copyright © 2020 gustavo.cosenza. All rights reserved.
-//
 
 import XCTest
 

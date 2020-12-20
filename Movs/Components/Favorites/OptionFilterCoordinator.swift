@@ -23,12 +23,6 @@ class OptionFilterCoordinator: Coordinator {
 
 extension OptionFilterCoordinator: OptionFilterViewControllerCoordinator {
     func optionChosen() {
-//        let filterCoordinator = FilterCoordinator(presenter: presenter)
-//        filterCoordinator.start()
-//        self.filterCoordinator = filterCoordinator
         presenter.popViewController(animated: true)
     }
 }
-
-
-//        self.navigationController?.popViewController(animated: true)

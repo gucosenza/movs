@@ -23,6 +23,8 @@ class OptionFilterViewController: UIViewController {
     private let genreManager = GenreManager.shared
     private let filterManager = FilterManager.shared
     var coordinator: OptionFilterViewControllerCoordinator?
+    var valueFilter: String = ""
+    var typeFilter: FilterTypes!
     
     private var optionFilterView = OptionFilterView()
     
@@ -72,17 +74,21 @@ class OptionFilterViewController: UIViewController {
 
 extension OptionFilterViewController: OptionFilterViewDelegate {
     func applyOption() {
+        switch self.typeFilter {
+        case .date:
+            filterManager.setDateOption(date: self.valueFilter)
+        case .genres:
+            filterManager.setGenreOption(genre: self.valueFilter)
+        case .none:
+            print("")
+        }
         coordinator?.optionChosen()
     }
 }
 
 extension OptionFilterViewController: OptionFilterTableViewManagerDelegate {
     func selectOption (value: String, filterType: FilterTypes) {
-        switch filterType {
-        case .date:
-            filterManager.setDateOption(date: value)
-        case .genres:
-            filterManager.setGenreOption(genre: value)
-        }
+        self.valueFilter = value
+        self.typeFilter = filterType
     }
 }

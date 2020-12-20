@@ -1,10 +1,3 @@
-//
-//  GenreManager.swift
-//  MovsTests
-//
-//  Created by gustavo.cosenza on 28/09/20.
-//  Copyright © 2020 gustavo.cosenza. All rights reserved.
-//
 
 import XCTest
 @testable import Movs
