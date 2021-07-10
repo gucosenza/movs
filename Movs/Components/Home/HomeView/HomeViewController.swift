@@ -70,8 +70,6 @@ class HomeViewController: UIViewController {
         
         isFetchInProgress = true
         networkManager.loadMovies(onComplete: { (moviesRest) in
-            
-            
             for movie in moviesRest.results {
                 self.homeCollectionManager.movies.append(movie)
             }

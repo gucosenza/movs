@@ -1,6 +1,6 @@
 import UIKit
 
-final class AppCoordinator {
+final class AppCoordinator: Coordinator {
     
     private unowned var sceneDelegate: SceneDelegate
     private var tabcoordinator: TabCoordinator?

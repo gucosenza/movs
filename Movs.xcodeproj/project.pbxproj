@@ -54,6 +54,8 @@
 		7FBE3E7224C77BD3000FF85E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE3E7124C77BD3000FF85E /* Config.swift */; };
 		7FBE3E7424C78D9B000FF85E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE3E7324C78D9B000FF85E /* CoreDataManager.swift */; };
 		7FBE3E7624C88513000FF85E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE3E7524C88513000FF85E /* FavoriteTableViewCell.swift */; };
+		7FD34AF12697883E00FDB085 /* ImageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34AF02697883E00FDB085 /* ImageManagerTests.swift */; };
+		7FD34AF92697937D00FDB085 /* MovieModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34AF82697937D00FDB085 /* MovieModelTests.swift */; };
 		7FFC624524EB760F00A90CCF /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC624424EB760F00A90CCF /* NetworkError.swift */; };
 		7FFC624724EB7B8000A90CCF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC624624EB7B8000A90CCF /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +131,8 @@
 		7FBE3E7124C77BD3000FF85E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7FBE3E7324C78D9B000FF85E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7FBE3E7524C88513000FF85E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		7FD34AF02697883E00FDB085 /* ImageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManagerTests.swift; sourceTree = "<group>"; };
+		7FD34AF82697937D00FDB085 /* MovieModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModelTests.swift; sourceTree = "<group>"; };
 		7FFC624424EB760F00A90CCF /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7FFC624624EB7B8000A90CCF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,17 +246,17 @@
 		7FB82D5024C3FCAD00745447 /* Movs */ = {
 			isa = PBXGroup;
 			children = (
-				7F5B169425314AD400B6229D /* Coordinators */,
-				7FB82D5D24C3FCB100745447 /* Assets.xcassets */,
-				7FB82D6224C3FCB100745447 /* Info.plist */,
-				7FB82D5A24C3FCAD00745447 /* Movs.xcdatamodeld */,
-				7FB82D5F24C3FCB100745447 /* LaunchScreen.storyboard */,
-				7FBE3E6A24C74356000FF85E /* Extension */,
-				7FBE3E6924C6A0D2000FF85E /* Model */,
-				7FB82D9024C49D3900745447 /* Components */,
-				7FB82D5324C3FCAD00745447 /* SceneDelegate.swift */,
 				7FB82D5124C3FCAD00745447 /* AppDelegate.swift */,
+				7FB82D5D24C3FCB100745447 /* Assets.xcassets */,
+				7FB82D9024C49D3900745447 /* Components */,
+				7F5B169425314AD400B6229D /* Coordinators */,
+				7FBE3E6A24C74356000FF85E /* Extension */,
+				7FB82D6224C3FCB100745447 /* Info.plist */,
+				7FB82D5F24C3FCB100745447 /* LaunchScreen.storyboard */,
+				7FBE3E6924C6A0D2000FF85E /* Model */,
+				7FB82D5A24C3FCAD00745447 /* Movs.xcdatamodeld */,
 				7FFC624324EB759000A90CCF /* Network */,
+				7FB82D5324C3FCAD00745447 /* SceneDelegate.swift */,
 			);
 			path = Movs;
 			sourceTree = "<group>";
@@ -260,10 +264,12 @@
 		7FB82D6A24C3FCB200745447 /* MovsTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FB82D6D24C3FCB200745447 /* Info.plist */,
 				7F83659F25218B1800BD33BC /* EndpointsTests.swift */,
-				7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */,
 				3920E479256F65B1007A3713 /* FilterManagerTests.swift */,
+				7F8365A1252193AD00BD33BC /* GenreManagerTests.swift */,
+				7FD34AF02697883E00FDB085 /* ImageManagerTests.swift */,
+				7FB82D6D24C3FCB200745447 /* Info.plist */,
+				7FD34AF82697937D00FDB085 /* MovieModelTests.swift */,
 			);
 			path = MovsTests;
 			sourceTree = "<group>";
@@ -538,6 +544,8 @@
 				7F8365A2252193AD00BD33BC /* GenreManagerTests.swift in Sources */,
 				3920E47A256F65B1007A3713 /* FilterManagerTests.swift in Sources */,
 				7F8365A025218B1800BD33BC /* EndpointsTests.swift in Sources */,
+				7FD34AF92697937D00FDB085 /* MovieModelTests.swift in Sources */,
+				7FD34AF12697883E00FDB085 /* ImageManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@ class FilterManagerTests: XCTestCase {
     var arrayFavorites: [FavoritesCD] = []
     
     override func setUp() {
+        
 //        guard let appDelegate =
 //          UIApplication.shared.delegate as? AppDelegate else {
 //          return
@@ -16,18 +17,19 @@ class FilterManagerTests: XCTestCase {
 //        let managedContext = appDelegate.persistentContainer.viewContext
 //        let entity = NSEntityDescription.entity(forEntityName: "FavoritesCD", in: managedContext)!
 //        let favoriteTemp = NSManagedObject(entity: entity, insertInto: managedContext)
-//
+
 //        let favorite1 = FavoritesCD()
-//        favorite1.setValue("terror", forKey: "genre")
-//        favorite1.setValue("Teste Um", forKeyPath: "name")
-//        favorite1.setValue("2020", forKeyPath: "year")
+//        favorite1.genre = "terror"
+//        favorite1.name = "Teste Um"
+//        favorite1.year = "2020"
 //
 //        let favorite2 = FavoritesCD()
-//        favorite2.setValue("comédia", forKey: "genre")
-//        favorite2.setValue("Teste Dois", forKeyPath: "name")
-//        favorite2.setValue("2019", forKeyPath: "year")
+//        favorite2.genre = "comédia"
+//        favorite2.name = "Teste Dois"
+//        favorite2.year = "2019"
 //
-//        arrayFavorites = [favorite1, favorite2]
+//        arrayFavorites.append(favorite1)
+//        arrayFavorites.append(favorite2)
     }
 
     override func tearDown() {
